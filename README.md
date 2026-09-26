@@ -45,24 +45,18 @@ that always works.
 
 ## Publishing on GitHub Pages
 
-GitHub Pages on a **private** repository requires GitHub Pro, Team, or
-Enterprise. On a Free plan the repo must be public for Pages to work.
+The site lives at <https://github.com/banuakman/badishoes> and is served by
+GitHub Pages from the `main` branch root, with custom domain `badishoes.com`.
 
-1. Create the private repo on GitHub (e.g. `badishoes`).
-2. Push this folder:
+The repo is **public**. GitHub Pages on a private repository requires GitHub
+Pro, Team, or Enterprise, and the account is on the Free plan. Nothing
+sensitive is in the repo; the Google Form endpoint is public by design.
 
-   ```bash
-   git init -b main
-   git add .
-   git commit -m "Add BADI landing page"
-   git remote add origin git@github.com:<your-org>/badishoes.git
-   git push -u origin main
-   ```
+Deploys are automatic: every push to `main` republishes the site within a
+minute or two.
 
-3. In the repo: **Settings → Pages → Build and deployment → Source: Deploy
-   from a branch**, branch `main`, folder `/ (root)`. Save.
-4. Under **Custom domain**, enter `badishoes.com` (this matches the `CNAME`
-   file) and tick **Enforce HTTPS** once the certificate is issued.
+Once DNS points at GitHub (below), go to **Settings → Pages** and tick
+**Enforce HTTPS** after the certificate is issued.
 
 ## DNS for the custom domain
 
@@ -74,7 +68,7 @@ At your DNS provider:
 | A     | @    | 185.199.109.153               |
 | A     | @    | 185.199.110.153               |
 | A     | @    | 185.199.111.153               |
-| CNAME | www  | `<your-org>.github.io`        |
+| CNAME | www  | `banuakman.github.io`         |
 
 To use `www.badishoes.com` as the primary URL instead, change the contents of
 `CNAME` to `www.badishoes.com` and set the same value in Settings → Pages.
